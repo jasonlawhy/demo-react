@@ -20,8 +20,7 @@ export default function ProductDetail() {
                 })
                 setProductDetail(productInfo)
               })
-
-      },[]) // <== Dependency Array(記)
+      }) // <== Dependency Array(記)
   
   return (
     <div>

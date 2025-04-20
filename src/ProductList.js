@@ -1,5 +1,4 @@
-import { data, Link } from 'react-router-dom'
-import style from './ProductList.module.css'
+import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react' // React框架會內建一個工具包, 叫React Hook,          如果要用React.Fragment, 記得要先import React
 import Title from './Title'
 import QuantityBtn from './QuantityBtn'
@@ -9,7 +8,7 @@ export default function ProductList() {
     let [productList, setProductList] = useState([])
     let [input, setInput] = useState(['[]'])
     
-    {/*一般請求API會用 "fetch(網址)"*/ }
+    //一般請求API會用 "fetch(網址)"
 
     //useEffect, 如何觸發useEffect function
     useEffect(()=>{
@@ -21,7 +20,7 @@ export default function ProductList() {
             .then(data => setProductList(data))
 
         console.log(productList)
-    },[]) // <== Dependency Array(記)
+    }) // <== Dependency Array(記)
 
     useEffect(()=>{
         if(input.length>4)
@@ -50,7 +49,7 @@ export default function ProductList() {
                         {[product.name]}<br/>
                         {[product.price]}元/件<br/>
                         <Link to={'/product/'+product.id}> {/* 點擊圖片可以連去相應的產品資料*/ }
-                        <img src={process.env.PUBLIC_URL+' /image/'+product.image} /> 
+                            <img src={process.env.PUBLIC_URL+'/image/'+product.image} alt={product.name} /> 
                         </Link>
                         <br/>
                         {[product.description]}<br/>
